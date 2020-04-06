@@ -1,6 +1,5 @@
 import React from "react"
 import { View, Text, StyleSheet, TextInput, TouchableOpacity, StatusBar } from "react-native"
-// import {Ionicons} from '@expo/vector-icons'
 import * as firebase from 'firebase'
 
 export default class RegisterScreen extends React.Component {
@@ -61,8 +60,8 @@ export default class RegisterScreen extends React.Component {
                     ></TextInput>
                 </View>
 
-                <View  style={{ marginTop: 32 }}>
-                    <Text style={styles.inputTitle}>Email Addres</Text>
+                <View  style={styles.containerEmail}>
+                    <Text style={styles.inputTitle}>Email Address</Text>
                     <TextInput style={styles.input} 
                     autoCapitalize="none"
                     onChangeText={email => this.setState({ email })}
@@ -70,7 +69,7 @@ export default class RegisterScreen extends React.Component {
                     ></TextInput>
                 </View>
 
-                <View style={{ marginTop: 32 }}>
+                <View style={styles.containerPassword}>
                     <Text style={styles.inputTitle}>Password</Text>
                     <TextInput style={styles.input} 
                     secureTextEntry 
@@ -81,12 +80,12 @@ export default class RegisterScreen extends React.Component {
                 </View>
             </View>
             <TouchableOpacity style={styles.button} onPress={this.handleSignUp}>
-                <Text style={{ color: "#FFF", fontWeight: "500"}}>Sign Up</Text>
+                <Text style={styles.buttonSignUp}>Sign Up</Text>
             </TouchableOpacity>
 
-            <TouchableOpacity style={{ alignSelf: "center", marginTop: 32}} onPress={() => this.props.navigation.navigate("Login")}>
+            <TouchableOpacity style={styles.headerLogin} onPress={() => this.props.navigation.navigate("Login")}>
                 <Text style={{ color: "#414959", fontSize: 13}}>
-                        Have a SocialApp? <Text style={{ fontWeight:"500", color: "#E9446A"}}>Login</Text>
+                        Have a SocialApp? <Text style={styles.login}>Login</Text>
                 </Text>
             </TouchableOpacity>
             </View>
@@ -136,5 +135,23 @@ const styles = StyleSheet.create({
         height: 52,
         alignItems: "center",
         justifyContent: "center"
+    },
+    buttonSignUp: {
+     color: "#FFF",
+     fontWeight: "500"
+    },
+    headerLogin: {
+    alignSelf: "center", 
+    marginTop: 32
+    },
+    login: {
+    fontWeight:"500", 
+    color: "#E9446A"
+    },
+    containerEmail: {
+        marginTop: 32
+    },
+    containerPassword: {
+        marginTop: 32
     }
 })

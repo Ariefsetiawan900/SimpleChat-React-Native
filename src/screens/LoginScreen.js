@@ -44,7 +44,7 @@ export default class LoginScreen extends React.Component {
                     ></TextInput>
                 </View>
 
-                <View style={{ marginTop: 32 }}>
+                <View style={styles.containerPassword}>
                     <Text style={styles.inputTitle}>Password</Text>
                     <TextInput style={styles.input} 
                     secureTextEntry 
@@ -55,12 +55,12 @@ export default class LoginScreen extends React.Component {
                 </View>
             </View>
             <TouchableOpacity style={styles.button} onPress={this.handleLogin}>
-                <Text style={{ color: "#FFF", fontWeight: "500"}}>Sign in</Text>
+                <Text style={styles.buttonSignIn}>Sign in</Text>
             </TouchableOpacity>
 
-            <TouchableOpacity style={{ alignSelf: "center", marginTop: 32}} onPress={() => this.props.navigation.navigate("Register")}>
-                <Text style={{ color: "#414959", fontSize: 13}}>
-                        New to SocialApp? <Text style={{ fontWeight:"500", color: "#E9446A"}}>Sign Up</Text>
+            <TouchableOpacity style={styles.containerSignUp} onPress={() => this.props.navigation.navigate("Register")}>
+                <Text style={styles.headerTextSignUp}>
+                        New to SocialApp? <Text style={styles.signUp}>Sign Up</Text>
                 </Text>
             </TouchableOpacity>
             </View>
@@ -110,5 +110,24 @@ const styles = StyleSheet.create({
         height: 52,
         alignItems: "center",
         justifyContent: "center"
+    },
+    containerPassword : {
+        marginTop: 32
+    },
+    buttonSignIn: {
+     color: "#FFF",
+     fontWeight: "500"
+    },
+    containerSignUp: {
+    alignSelf: "center", 
+    marginTop: 32
+    },
+    headerTextSignUp: {
+    color: "#414959", 
+    fontSize: 13
+    },
+    signUp: {
+    fontWeight:"500", 
+    color: "#E9446A"
     }
 })
