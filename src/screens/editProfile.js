@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { View, Text, TextInput, TouchableOpacity, StyleSheet, ToastAndroid, Image, PermissionsAndroid, ScrollView } from 'react-native';
+import { View, Text, TextInput, TouchableOpacity, StyleSheet, ToastAndroid, Image, PermissionsAndroid, ScrollView, Button } from 'react-native';
 // import Firebase from '../Config/firebase'
 import  * as firebase from 'firebase'
 import Icon from 'react-native-vector-icons/FontAwesome';
@@ -121,10 +121,10 @@ class Edit extends Component {
         return (
             
             <View style={styles.container}>
-                <View style={{backgroundColor: 'white', elevation: 0, width: '128%', top: -39}}>
-                <View style={{paddingVertical: 15, paddingHorizontal: 20, flexDirection: 'row', justifyContent: 'space-between', alignItems: 'center',}}>
+                <View style={styles.containerHeaderTop}>
+                <View style={styles.headerTop}>
                     <TouchableOpacity activeOpacity={1} onPress={this.backButtonHandler}>
-                        <Icon name='arrow-left' style={{fontSize: 25}} />
+                        <Icon name='arrow-left' style={styles.iconBack} />
                     </TouchableOpacity>
                     <Text>Configure</Text>
                      <Text>{''}</Text>
@@ -137,8 +137,8 @@ class Edit extends Component {
                     />
                 </View>
                 <View style={styles.headerContainer}>
-                    <Text style={{ fontSize: 30 }}>Hi, {this.state.displayName}</Text>
-                    <Text style={{ fontSize: 17, color: '#262626' }}>
+                    <Text style={styles.textGreet}>Hi, {this.state.displayName}</Text>
+                    <Text style={styles.textConfigure}>
                         Configure your profile
                     </Text>
                 </View>
@@ -167,7 +167,7 @@ class Edit extends Component {
                     <TouchableOpacity
                         style={styles.formSaveButton}
                         onPress={this.profileHandler}>
-                        <Text style={{ color: '#fff', fontSize: 20, textAlign: 'center' }}>
+                        <Text style={styles.buttonSave}>
                             Save
                         </Text>
                     </TouchableOpacity>
@@ -257,5 +257,39 @@ const styles = StyleSheet.create({
         marginTop: 10,
         width: '100%',
     },
-    errorText: { textAlign: 'center', color: 'red', fontSize: 16 },
+    errorText: { 
+        textAlign: 'center', 
+        color: 'red', 
+        fontSize: 16
+    },
+    containerHeaderTop: {
+        backgroundColor: 'white',
+        elevation: 0, 
+        width: '128%',
+        top: -39
+    },
+    headerTop: {
+        paddingVertical: 15, 
+        paddingHorizontal: 20, 
+        flexDirection: 'row', 
+        justifyContent: 'space-between', 
+        alignItems: 'center'
+    },
+    iconBack: {
+        fontSize: 25
+    },
+    textGreet: {
+        fontSize: 30
+    },
+    textConfigure: {
+        fontSize: 17, 
+        color: '#262626'
+    },
+    buttonSave: {
+        color: '#fff', 
+        fontSize: 20, 
+        textAlign: 'center'
+    }
+
+
 })

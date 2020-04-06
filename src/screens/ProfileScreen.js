@@ -154,20 +154,20 @@ class Profile extends Component {
         return (
             <View style={styles.container}>
                 <View style={styles.containerHeader}>
-                    <Text onPress={this.editHandler}><Icon style={{color:'white'}} name='edit' size={30} /></Text>
-                    <Text onPress={this.signOutUser}><Icon style={{color:'white'}} name='sign-out' size={30} /></Text>
+                    <Text onPress={this.editHandler}><Icon style={styles.iconHeader} name='edit' size={30} /></Text>
+                    <Text onPress={this.signOutUser}><Icon style={styles.iconHeader} name='sign-out' size={30} /></Text>
                 </View>
                 <View style={styles.containerBottom}>
                     <Image style={styles.circle} source={{ uri: this.state.imageUrl }} />
                     <Text style={styles.text}>Hi, {this.state.displayName}</Text>
                     <View style={styles.mainText}>
-                        <View style={styles.textBottom}>
-                        <Text style={{fontSize: 18}}>Phone :</Text>
-                        <Text style={{fontSize: 18}}>{this.state.phone}</Text>
+                        <View style={styles.containerTextBottom}>
+                        <Text style={styles.textBottom}>Phone :</Text>
+                        <Text style={styles.textBottom}>{this.state.phone}</Text>
                         </View>
-                        <View style={styles.textBottom}>
-                        <Text style={{fontSize: 18, paddingRight: 80}}>Email : </Text>
-                        <Text style={{fontSize: 18}}>{this.state.email}</Text>
+                        <View style={styles.containerTextBottom}>
+                        <Text style={styles.textBottomPhone}>Email : </Text>
+                        <Text style={styles.textBottom}>{this.state.email}</Text>
                         </View>
                     </View>
 
@@ -231,13 +231,21 @@ const styles = StyleSheet.create({
     mainText : {
         top: -200
     },
-    textBottom: {
+    containerTextBottom: {
         flexDirection: 'row',
         fontSize: 24,
         justifyContent: 'space-between',
         alignContent: 'space-between',
         marginBottom: 20,
-        
+    },
+    textBottom: {
+        fontSize: 18
+    },
+    textBottomPhone: {
+    fontSize: 18, 
+    paddingRight: 80
+    },
+    iconHeader: {
+    color:'white'
     }
-
 })

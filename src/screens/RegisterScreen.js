@@ -40,9 +40,6 @@ export default class RegisterScreen extends React.Component {
         return (
             <View style={styles.container}>
                 <StatusBar barStyle="light-content"></StatusBar>
-                {/* <TouchableOpacity>
-                    <Ionicons name="ios-arrow-round-back" size={32} color="#FFF"></Ionicons>
-                </TouchableOpacity> */}
                <Text style={styles.greeting}>{`Hello.\nSign up to get started`}</Text>
 
             <View style={styles.errorMessage}>
